@@ -91,6 +91,27 @@ npm run dev
 
 ---
 
+## 🌐 Deployment (Vercel)
+
+The easiest way to deploy **Deshet Stream** is using the [Vercel Platform](https://vercel.com/new).
+
+### Steps:
+
+1.  **Push your code** to a GitHub/GitLab/Bitbucket repository.
+2.  **Import the project** in Vercel.
+3.  **Configure Settings**:
+    - **Framework Preset**: Vite (detected automatically).
+    - **Root Directory**: `./`.
+    - **Build Command**: `npm run build`.
+    - **Output Directory**: `dist`.
+4.  **Environment Variables**:
+    - Add `VITE_TMDB_API_KEY` with your actual API key value.
+5.  **Click Deploy**!
+
+_Note: I've already included a `vercel.json` file to handle SPA routing correctly._
+
+---
+
 ## 👨‍💻 Developer
 
 **Yiheyis Tamir**
