@@ -1,0 +1,273 @@
+.hero-section {
+    height: 90vh;
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 7rem;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    transition: background-image 0s;
+}
+
+/* Crossfade via a pseudo-element that transitions */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    background-size: cover;
+    background-position: center top;
+    z-index: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.hero-section.animating-next::before,
+.hero-section.animating-prev::before {
+    opacity: 0;
+}
+
+/* Dark gradient overlay */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        var(--bg-color) 0%,
+        rgba(15, 16, 20, 0.3) 55%,
+        rgba(15, 16, 20, 0.7) 100%
+    );
+    z-index: 1;
+}
+
+/* ── CONTENT ─────────────────────────────────────────── */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 5%;
+    max-width: 860px;
+}
+
+.hero-content-enter {
+    animation: heroSlideIn 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+.hero-content-exit {
+    animation: heroSlideOut 0.4s ease-in forwards;
+}
+
+@keyframes heroSlideIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroSlideOut {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(-20px); }
+}
+
+/* ── META BADGES ─────────────────────────────────────── */
+.hero-meta-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.hero-badge {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.rating-badge {
+    background: rgba(70, 211, 105, 0.2);
+    color: #46d369;
+    border: 1px solid rgba(70, 211, 105, 0.4);
+}
+
+.year-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.type-badge {
+    background: rgba(0, 209, 255, 0.15);
+    color: #00d1ff;
+    border: 1px solid rgba(0, 209, 255, 0.3);
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1.25rem;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+    line-height: 1.08;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    opacity: 0.88;
+    line-height: 1.65;
+    max-width: 700px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+/* ── BTN ─────────────────────────────────────────────── */
+.btn-premium {
+    background-color: var(--primary-accent);
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    font-weight: 700;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 6px 20px rgba(0, 209, 255, 0.4);
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-premium:hover {
+    transform: scale(1.05);
+    background-color: #0099bb;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 209, 255, 0.6);
+}
+
+.btn-details-hero {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-details-hero:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: none;
+    border-color: white;
+}
+
+/* ── ARROWS ──────────────────────────────────────────── */
+.hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.45);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 2.2rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+    backdrop-filter: blur(6px);
+    opacity: 0;
+}
+
+.hero-section:hover .hero-arrow {
+    opacity: 1;
+}
+
+.hero-arrow:hover {
+    background: rgba(0, 209, 255, 0.75);
+    border-color: var(--primary-accent);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.hero-arrow-left  { left:  2%; }
+.hero-arrow-right { right: 2%; }
+
+/* ── DOTS ────────────────────────────────────────────── */
+.hero-dots {
+    position: absolute;
+    bottom: 3.2rem;
+    right: 5%;
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.hero-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0;
+}
+
+.hero-dot.active {
+    width: 28px;
+    border-radius: 4px;
+    background: white;
+}
+
+/* ── PROGRESS BAR ────────────────────────────────────── */
+.hero-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 10;
+}
+
+.hero-progress-bar {
+    height: 100%;
+    background: var(--primary-accent);
+    width: 0%;
+    animation: progressFill linear forwards;
+}
+
+@keyframes progressFill {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 75vh;
+        padding-bottom: 5rem;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .hero-content p {
+        font-size: 0.95rem;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+    .hero-arrow { display: none; }
+    .hero-dots { right: 50%; transform: translateX(50%); }
+}

@@ -1,0 +1,114 @@
+.trending-page {
+    padding-top: 80px;
+    min-height: 100vh;
+    color: white;
+}
+
+.trending-hero {
+    position: relative;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1a0010 0%, #0a000a 40%, #001020 100%);
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.trending-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(229, 9, 20, 0.25) 0%, transparent 70%),
+                radial-gradient(ellipse at 70% 50%, rgba(20, 100, 200, 0.15) 0%, transparent 70%);
+}
+
+.trending-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, #0f1014 100%);
+}
+
+.trending-hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 5%;
+    text-align: center;
+    width: 100%;
+}
+
+.trending-fire {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+.trending-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin: 0 0 0.75rem;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53, #ffd93d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.trending-hero-content p {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.trending-controls {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2.5rem 5% 1.5rem;
+}
+
+.toggle-group {
+    display: flex;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    padding: 4px;
+    gap: 4px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.55);
+    padding: 8px 22px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.toggle-btn:hover {
+    color: white;
+}
+
+.toggle-btn.active {
+    background: var(--primary-accent);
+    color: white;
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.35);
+}
+
+@media (max-width: 600px) {
+    .trending-hero { height: 260px; }
+    .trending-hero-content h1 { font-size: 2.4rem; }
+    .trending-controls { gap: 1rem; }
+    .toggle-btn { padding: 7px 14px; font-size: 0.82rem; }
+}

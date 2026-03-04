@@ -1,0 +1,235 @@
+.player-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.player-modal-content {
+    width: 100%;
+    max-width: 1200px;
+    background: #0a0a0c;
+    border-radius: 16px;
+    overflow-y: auto;
+    max-height: 95vh;
+    position: relative;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.8), 0 0 20px rgba(229, 9, 20, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-accent) rgba(255,255,255,0.05);
+}
+
+.player-modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.player-modal-content::-webkit-scrollbar-thumb {
+    background: var(--primary-accent);
+    border-radius: 10px;
+}
+
+.player-tv-selector {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.player-season-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.p-season-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.p-season-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.p-season-btn.active {
+    background: var(--primary-accent);
+    color: white;
+    border-color: var(--primary-accent);
+}
+
+.player-episode-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+}
+
+.p-ep-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    color: white;
+}
+
+.p-ep-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.p-ep-item.active {
+    background: rgba(229, 9, 20, 0.15);
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.1);
+}
+
+.p-ep-num {
+    color: var(--primary-accent);
+    font-weight: 800;
+    font-size: 0.95rem;
+}
+
+.p-ep-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.player-close-btn:hover {
+    background: var(--primary-accent);
+    transform: rotate(90deg);
+}
+
+.player-iframe-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: black;
+}
+
+.player-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.player-controls {
+    padding: 20px 30px;
+    background: #111114;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.server-list {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.server-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.server-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.server-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.server-btn.active {
+    background: var(--primary-accent);
+    color: white;
+    border-color: var(--primary-accent);
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.player-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .player-modal-content {
+        max-width: 100%;
+        border-radius: 0;
+    }
+    .player-controls {
+        padding: 15px;
+    }
+    .server-list {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .server-btn {
+        flex: 1;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+    .player-episode-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

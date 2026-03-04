@@ -1,0 +1,156 @@
+.actor-detail-container {
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    position: relative;
+    padding-bottom: 5rem;
+}
+
+.actor-header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.actor-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(80px) opacity(0.3);
+}
+
+.actor-header-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--bg-color), transparent);
+}
+
+.actor-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 3rem;
+    padding: 120px 6% 0;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.actor-sidebar {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+}
+
+.actor-profile-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-bottom: 2rem;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+.actor-personal-info {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.actor-personal-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.actor-personal-info .info-item {
+    margin-bottom: 1rem;
+}
+
+.actor-personal-info .label {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.actor-personal-info .value {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.actor-main-info h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.biography-section {
+    margin-bottom: 4rem;
+}
+
+.biography-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.biography-text {
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    white-space: pre-wrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.biography-text.expanded {
+    display: block;
+    -webkit-line-clamp: initial;
+    line-clamp: initial;
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--primary-accent);
+    font-weight: 700;
+    padding: 0;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.known-for-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+@media (max-width: 992px) {
+    .actor-content {
+        grid-template-columns: 1fr;
+    }
+
+    .actor-sidebar {
+        position: static;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .actor-main-info h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+}
