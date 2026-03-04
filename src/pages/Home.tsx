@@ -193,7 +193,20 @@ function Home({
                 })()}
         </h3>
 
-        {loading && movies.length === 0 ? (
+        {error ? (
+          <div className="error-container">
+            <div className="error-message">
+              <h3>Oops! 🎬</h3>
+              <p>{error}</p>
+              <button
+                className="btn-premium mt-3"
+                onClick={() => window.location.reload()}
+              >
+                Try Again
+              </button>
+            </div>
+          </div>
+        ) : loading && movies.length === 0 ? (
           <div className="movie-grid">
             {[...Array(12)].map((_, i) => (
               <MovieCardSkeleton key={i} />
